@@ -1,6 +1,7 @@
 $( document ).ready(function() {
 	$('#seedDiv').hide();
 	$('#addressDiv').hide();
+	$('#logout').hide();
 });
 
 function seed_phrase(){
@@ -47,6 +48,7 @@ function generate_address(password, seed){
 			var address = "0x" + addr;
 			console.log("PK: " + private_key + "Balance: " + balance);	
 		
+			$('#logout').show();
 			$('#addressDiv').show();
 			$('#seedDiv').hide();
 			$('#info').html('Your wallet information');	
@@ -54,6 +56,13 @@ function generate_address(password, seed){
 			$('#balance').text(balance);
 			$('#private_key').html("<strong>Private Key: </strong>" + private_key);
 			$('#private_key').hide();
+			// html = html + "<li>";
+			// html = html + "<p><b>Address: </b>0x" + addr + "</p>";
+			// html = html + "<p><b>Private Key: </b>0x" + private_key + "</p>";
+			// html = html + "<p><b>Balance: </b>" + web3.fromWei(balance, "ether") + " ether</p>";
+			// html = html + "</li>";
+
+			// $('#addressText').html(html);
 		});
 	});
 }

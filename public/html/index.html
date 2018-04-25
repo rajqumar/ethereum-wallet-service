@@ -8,20 +8,33 @@
   src="http://code.jquery.com/jquery-3.3.1.min.js"
   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
   crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
    </head>
    <style type="text/css">
+      body{
+         background-color: #33d9b2;
+      }
    	.spacing{
    		padding-top: 35px; 
    	}
+      .fab{
+         margin-left: 225px;
+      }
+      #info{
+         font-size: 23px;
+      }
    </style>
    <body>
       <div class="container">
 
          <div class="row">
          	<div class="col-md-6 offset-md-3">
-         		<div class="spacing"></div>
-         		<div class="alert alert-info" id="info" role="alert">
-                  <strong> Create a Wallet</strong>
+               <div class="spacing"></div>
+               <i class="fab fa-ethereum fa-5x"></i>
+               <input type="button" class="btn-xs btn-danger" value="Logout" id="logout" onclick="window.location.reload()" style="margin-left: 193px;">
+               <div class="spacing"></div>
+         		<div class="text-center alert alert-info" id="info" role="alert">
+                  <strong> Ethereum Wallet</strong>
                </div>
                <div class="alert alert-success" id="seedDiv" role="alert">
                  <h4 class="alert-heading">Copy and save this seed</h4>
@@ -47,7 +60,7 @@
                </div>
 				<form id="passwordDiv">
 				  <div class="form-group">
-				    <label for="password">Enter Password</label>
+				    <label for="password"><i class="fas fa-unlock-alt"></i> &nbsp; Enter Password</label>
 				    <input type="password" class="form-control" id="password">
 				  </div>
 				  <button type="button" class="btn btn-primary" onclick="seed_phrase()">Login</button>
