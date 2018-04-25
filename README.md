@@ -1,5 +1,4 @@
 # ethereum-wallet-service
-INCOMPLETE
 
 Ethereum based HD wallet generation
 
