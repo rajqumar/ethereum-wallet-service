@@ -1,35 +1,19 @@
 {
-  "name": "ethereum-wallet-service",
+  "name": "hot_wallet",
   "version": "1.0.0",
-  "description": "Ethereum HD Wallet Generation",
+  "description": "",
   "main": "index.js",
-  "dependencies": {
-    "eth-lightwallet": "^3.0.1",
-    "express": "^4.16.3",
-    "web3": "^1.0.0-beta.34"
-  },
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/rajqumar/ethereum-wallet-service.git"
-  },
-  "keywords": [
-    "ethereum",
-    "wallet",
-    "lightwallet",
-    "HD",
-    "Wallet",
-    "ethereum",
-    "wallet",
-    "generation"
-  ],
-  "author": "Rajkumar Tiwari",
+  "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/rajqumar/ethereum-wallet-service/issues"
+  "dependencies": {
+    "eth-lightwallet": "^3.0.1",
+    "ethjs-provider-signer": "^0.1.4",
+    "express": "^4.16.3"
   },
-  "homepage": "https://github.com/rajqumar/ethereum-wallet-service#readme"
+  "devDependencies": {
+    "nodemon": "^1.17.3"
+  }
 }

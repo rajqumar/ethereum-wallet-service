@@ -4,9 +4,11 @@ var app = express();
 app.use(express.static('public'));
 
 app.get('/', function(req, res){
-	res.sendFile(__dirname+"/public/html/index.html");
+	res.sendFile(__dirname+'/public/html/index.html');
 });
 
-app.listen(7000, function(){
-	console.log('Listening to the port 7000');
+var port = 7000;
+
+app.listen(port, function(){
+	console.log('Listening to port ' + port);
 });
