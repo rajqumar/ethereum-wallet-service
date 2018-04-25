@@ -1,53 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
    <head>
-      <title>Building a Wallet Service</title>
+      <title>Create a wallet send ether and tokens</title>
       <meta charset="utf-8">
       <link rel="stylesheet" href="/css/bootstrap.min.css">
+      <script
+  src="http://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
    </head>
+   <style type="text/css">
+   	.spacing{
+   		padding-top: 35px; 
+   	}
+   </style>
    <body>
       <div class="container">
+
          <div class="row">
-            <div class="col-md-6 offset-md-3">
-               <br>
-               <div class="alert alert-info" id="info" role="alert">
-                  Create or use your existing wallet.
+         	<div class="col-md-6 offset-md-3">
+         		<div class="spacing"></div>
+         		<div class="alert alert-info" id="info" role="alert">
+                  <strong> Create a Wallet</strong>
                </div>
-               <form>
-                  <div class="form-group">
-                     <label for="seed">Enter 12-word seed</label>
-                     <input type="text" class="form-control" id="seed">
-                  </div>
-                  <button type="button" class="btn btn-primary"
-                     onclick="generate_addresses()">Generate Details</button>
-                  <button type="button" class="btn btn-primary"
-                     onclick="generate_seed()">Generate New Seed</button>
-               </form>
-               <hr>
-               <h2 class="text-xs-center">Address, Keys and Balances of the seed</h2>
-               <ol id="list"></ol>
-               <hr>
-               <h2 class="text-xs-center">Send ether</h2>
-               <form>
-                  <div class="form-group">
-                     <label for="address1">From address</label>
-                     <input type="text" class="form-control" id="address1">
-                  </div>
-                  <div class="form-group">
-                     <label for="address2">To address</label>
-                     <input type="text" class="form-control" id="address2">
-                  </div>
-                  <div class="form-group">
-                     <label for="ether">Ether</label>
-                     <input type="text" class="form-control" id="ether">
-                  </div>
-                  <button type="button" class="btn btn-primary" onclick="send_ether()">Send Ether</button>
-               </form>
-            </div>
+               <div class="alert alert-success" id="seedDiv" role="alert">
+                 <h4 class="alert-heading">Copy and save this seed</h4>
+                 <p id="seedPhrase"></p>
+              <button type="button" class="btn btn-success" onclick="generate_address()">Generate</button>
+               </div>
+               <div class="" id="addressDiv">
+<!--                  <h4 class="alert-heading">Your wallet information</h4> -->
+                 <table class="table table-dark">
+                 <tbody>
+                   <tr>
+                     <th scope="row">Wallet Address </th>
+                     <td><strong>Balance</strong></td>
+                   </tr>
+                   <tr>
+                     <th scope="row" id="wallet_addr">0xwsfjslgfkjlkgjfdklgjldfjlg34342</th>
+                     <td id="balance">100 eth</td>
+                   </tr>
+                 </tbody>
+               </table>
+               <p id="private_key"></p>
+              <button type="button" class="btn btn-success" id="pkbutton" onclick="private_key_gen()">Private key</button>
+               </div>
+				<form id="passwordDiv">
+				  <div class="form-group">
+				    <label for="password">Enter Password</label>
+				    <input type="password" class="form-control" id="password">
+				  </div>
+				  <button type="button" class="btn btn-primary" onclick="seed_phrase()">Login</button>
+				</form>
+			</div>
          </div>
       </div>
       <script src="/js/web3.min.js"></script>
-      <script src="/js/hooked-web3-provider.min.js"></script>
+<!--       <script src="/js/hooked-web3-provider.min.js"></script> -->
       <script src="/js/lightwallet.min.js"></script>
       <script src="/js/main.js"></script>
    </body>
