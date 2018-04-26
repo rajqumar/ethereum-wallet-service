@@ -2,6 +2,8 @@ $( document ).ready(function() {
 	$('#seedDiv').hide();
 	$('#addressDiv').hide();
 	$('#logout').hide();
+	$('#sendEthDiv').hide();
+	//$('#transactionDiv').hide();
 });
 
 function seed_phrase(){
@@ -51,18 +53,12 @@ function generate_address(password, seed){
 			$('#logout').show();
 			$('#addressDiv').show();
 			$('#seedDiv').hide();
+			$('#sendEthDiv').show();
 			$('#info').html('Your wallet information');	
 			$('#wallet_addr').text(address);
 			$('#balance').text(balance);
 			$('#private_key').html("<strong>Private Key: </strong>" + private_key);
 			$('#private_key').hide();
-			// html = html + "<li>";
-			// html = html + "<p><b>Address: </b>0x" + addr + "</p>";
-			// html = html + "<p><b>Private Key: </b>0x" + private_key + "</p>";
-			// html = html + "<p><b>Balance: </b>" + web3.fromWei(balance, "ether") + " ether</p>";
-			// html = html + "</li>";
-
-			// $('#addressText').html(html);
 		});
 	});
 }
@@ -70,4 +66,24 @@ function generate_address(password, seed){
 function private_key_gen(){
 	$('#private_key').show();
 	$('#pkbutton').hide();
+}
+
+function sendEth() {
+	var txs;
+	var fromAddr = document.getElementById('sendFrom').value
+	var toAddr = document.getElementById('sendTo').value
+	var valueEth = document.getElementById('sendValueAmount').value
+
+	var value = parseFloat(valueEth)*1.0e18
+	var gasPrice = 18000000000
+	var gas = 50000
+	
+	web3.eth.sendTransaction({from: fromAddr, to: toAddr, value: value, gasPrice: gasPrice, gas: gas}, function (err, txhash) {
+	  console.log('error: ' + err)
+	  console.log('go to : https://kovan.etherscan.io/tx/' + txhash)
+	  var txs = 'https://kovan.etherscan.io/tx/' + txhash;
+	})
+	
+	$('#transactionDiv').show();
+	$('#etherscan').text(txs);
 }

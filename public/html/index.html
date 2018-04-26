@@ -65,9 +65,43 @@
 				  </div>
 				  <button type="button" class="btn btn-primary" onclick="seed_phrase()">Login</button>
 				</form>
+        <div class="spacing"></div>
 			</div>
-         </div>
+         
+      <div class="spacing"></div>
+      
+      <div class="col-md-6 offset-md-3" id="sendEthDiv">
+        <div class="text-center alert alert-info" id="info" role="alert" style="font-size: 22px !important">
+              <strong> Send Transaction</strong>
+           </div>
+
+        <form>
+          <div class="form-group">
+            <label for="sendFrom">From Address</label>
+            <input type="text" class="form-control" id="sendFrom">
+          </div>
+          <div class="form-group">
+            <label for="sendTo">To Address</label>
+            <input type="text" class="form-control" id="sendTo">
+          </div>
+          <div class="form-group">
+            <label for="sendValueAmount">Amount</label>
+            <input type="text" class="form-control" id="sendValueAmount">
+          </div>
+          <button type="button" class="btn btn-primary" onclick="sendEth()">Send</button>
+        </form>
       </div>
+      
+      <div class="spacing"></div>
+      
+      <div class="col-md-6 offset-md-3" id="transactionDiv">
+        <p id="etherscan">EtherLink</p>
+      </div>
+
+      <div class="spacing"></div>
+      </div>
+      </div>
+
       <script src="/js/web3.min.js"></script>
 <!--       <script src="/js/hooked-web3-provider.min.js"></script> -->
       <script src="/js/lightwallet.min.js"></script>
