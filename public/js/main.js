@@ -3,7 +3,7 @@ $( document ).ready(function() {
 	$('#addressDiv').hide();
 	$('#logout').hide();
 	$('#sendEthDiv').hide();
-	//$('#transactionDiv').hide();
+	$('#transactionDiv').hide();
 });
 
 function seed_phrase(){
