@@ -87,3 +87,24 @@ function sendEth() {
 	$('#transactionDiv').show();
 	$('#etherscan').text(txs);
 }
+
+//calling contract functions
+function functionCall() {
+        var fromAddr = document.getElementById('functionCaller').value
+        var contractAddr = document.getElementById('contractAddr').value
+        var abi = JSON.parse(document.getElementById('contractAbi').value)
+        var contract = web3.eth.contract(abi).at(contractAddr)
+        var functionName = document.getElementById('functionName').value
+        var args = JSON.parse('[' + document.getElementById('functionArgs').value + ']')
+        var valueEth = document.getElementById('sendValueAmount').value
+        var value = parseFloat(valueEth)*1.0e18
+        var gasPrice = 50000000000
+        var gas = 4541592
+        args.push({from: fromAddr, value: value, gasPrice: gasPrice, gas: gas})
+        var callback = function(err, txhash) {
+          console.log('error: ' + err)
+          console.log('txhash: ' + txhash)
+        }
+        args.push(callback)
+        contract[functionName].apply(this, args)
+      }
